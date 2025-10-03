@@ -2,11 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Minimal Model Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Mitochondrial Model</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    model-viewer {
+      width: 90%;
+      max-width: 800px;
+      height: 600px;
+    }
+  </style>
 </head>
 <body>
-  <model-viewer src="dmso0hrfish3nm4.glb" style="width: 600px; height: 400px;" alt="3D model" camera-controls></model-viewer>
+  <h1>3D Mitochondrial Network</h1>
+
+  <model-viewer 
+    src="dmso0hrfish3nm4.glb" 
+    alt="3D model of ZF neuromast mitochondrial network"
+    camera-controls 
+    auto-rotate 
+    shadow-intensity="1" 
+    exposure="1"
+    touch-action="pan-y">
+  </model-viewer>
 </body>
 </html>
-
