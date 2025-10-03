@@ -2,41 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3D Mitochondrial Model</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Mitochondrial Models</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
-    body {
-      margin: 0;
-      background-color: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-    h1 {
-      margin-bottom: 1rem;
+    body { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      font-family: sans-serif; 
+      margin: 20px;
     }
     model-viewer {
-      width: 90%;
-      max-width: 800px;
-      height: 600px;
+      width: 90vw; 
+      max-width: 800px; 
+      height: 600px; 
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 0 5px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>3D Mitochondrial Network</h1>
+  <h1>Select a 3D Mitochondrial Model</h1>
 
   <model-viewer 
+    id="viewer" 
     src="dmso0hrfish3nm4.glb" 
-    alt="3D model of ZF neuromast mitochondrial network"
+    alt="3D mitochondrial model" 
     camera-controls 
     auto-rotate 
-    shadow-intensity="1" 
+    shadow-intensity="1"
     exposure="1"
     touch-action="pan-y">
   </model-viewer>
+
+  <div>
+    <button onclick="changeModel('dmso0hrfish3nm4.glb')">Model 3nm4</button>
+    <button onclick="changeModel('dmso0hrfish6nm1.glb')">Model 6nm1</button>
+  </div>
+
+  <script>
+    function changeModel(modelPath) {
+      const viewer = document.getElementById('viewer');
+      viewer.src = modelPath;
+    }
+  </script>
 </body>
 </html>
+
